@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Movie from "./components/Movie";
 
 const FEATURED_API =
@@ -10,7 +10,9 @@ const SEARCH_API =
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  //const [searchTerm, setSearchTerm] = useState("");
+  const inputRef = useRef();
+  //console.log("inputref:", inputRef?.current?.value);
 
   useEffect(() => {
     getMovies(FEATURED_API);
@@ -27,14 +29,20 @@ function App() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    if (searchTerm) {
-      getMovies(SEARCH_API + searchTerm);
-      setSearchTerm("");
-    }
+    getMovies(SEARCH_API + inputRef?.current?.value);
   };
-  const handleOnChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+
+  // const handleOnSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   if (inputRef?.current?.value) {
+  //     getMovies(SEARCH_API + inputRef?.current?.value);
+  //     //setSearchTerm("");
+  //   }
+  // };
+  //const handleOnChange = (e) => {
+  //setSearchTerm(e.target.value);
+  //};
 
   return (
     <>
@@ -44,8 +52,9 @@ function App() {
             className="search"
             type="text"
             placeholder="Search.."
-            value={searchTerm}
-            onChange={handleOnChange}
+            ref={inputRef}
+            //value={searchTerm}
+            //onChange={handleOnChange}
           />
         </form>
       </header>
