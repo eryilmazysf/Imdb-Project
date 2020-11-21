@@ -6,6 +6,6 @@
   </p>
   <p> ➡️  I took data from Themoviedb api.  </p>
   <p> ➡️  Users can search a film name by using search button. </p>
-  <p> ➡️  Users can watch film trailer which they selected by clicking play icons.</p>
-  <p> ➡️  Users can look film detail with double click on film picture. </p>
+  <p> ➡️  Users can watch film trailer  by clicking over movie image.</p>
+  <p> ➡️  Users can view movie information by hovering over the movie image. </p>
  
